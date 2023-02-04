@@ -1,0 +1,75 @@
+
+
+import { constructSameAddressMap } from '../utils/constructSameAddressMap'
+import { SupportedChainId } from './chains'
+
+type AddressMap = { [chainId: number]: string }
+type AddressLotteryMap = { [id: number]: string }
+
+
+
+export const HEX_ADDRESS = '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39'
+
+// export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS)
+export const V2_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D')
+export const MINI_CHADS_LOTTERY = '0xB4C81a651698b8c4A7ed510e0cF7f16C956C56d0' 
+export const WALES_ONLY_LOTTERY =  '0xBa5d1f2Ee1384e7871725a41615787631080B9f7'
+export const BUSD_TEST = '0x14663b19B786c8faC127B2A9a1B1594A0FD529F7'
+ 
+export const LOTTERY_ADDRESS: AddressLotteryMap = {
+ 0: '0xB4C81a651698b8c4A7ed510e0cF7f16C956C56d0', 
+ 1: '0xBa5d1f2Ee1384e7871725a41615787631080B9f7' 
+}
+
+// celo v3 addresses
+// const CELO_V3_CORE_FACTORY_ADDRESSES = '0xAfE208a311B21f13EF87E33A90049fC17A7acDEc'
+export const PULSE_DOGE_ADDRESS = '0x34F0915a5f15a66Eba86F6a58bE1A471FB7836A7'
+export const HEDRON_ADDRESS = '0x3819f64f282bf135d62168C1e513280dAF905e06'
+const CELO_MULTICALL_ADDRESS = '0x633987602DE5C4F337e3DbF265303A1080324204'
+export const HEXS_STAKE_MANAGER_ADDRESS = '0x8BD3d1472A656e312E94fB1BbdD599B8C51D18e3'
+export const MAXIMUS_ADDRESS = '0x0d86EB9f43C57f6FF3BC9E23D8F9d82503f0e84b'
+const CELO_TICK_LENS_ADDRESSES = '0x5f115D9113F88e0a0Db1b5033D90D4a9690AcD3D' 
+const BSC_MULTICALL_ADDRESSES = '0x2a4E3243b5A1ff742310a97a076741Dd7e009A59' 
+const BSCTN_MULTICALL_ADDRESSES = '0xB989C337a28Fa3F3D7797E1905Ac15D23DB12C5c' 
+export const UNI_ADDRESS: AddressMap = constructSameAddressMap('0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984')
+
+
+/* V3 Contract Addresses */
+// export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
+//   ...constructSameAddressMap(V3_FACTORY_ADDRESS, [
+//     SupportedChainId.OPTIMISM,
+//     SupportedChainId.OPTIMISTIC_KOVAN,
+//     SupportedChainId.ARBITRUM_ONE,
+//     SupportedChainId.ARBITRUM_RINKEBY,
+//     SupportedChainId.POLYGON_MUMBAI,
+//     SupportedChainId.POLYGON,
+//   ]),
+//   [SupportedChainId.CELO]: CELO_V3_CORE_FACTORY_ADDRESSES,
+//   [SupportedChainId.CELO_ALFAJORES]: CELO_V3_CORE_FACTORY_ADDRESSES,
+// }
+
+
+export const MULTICALL_ADDRESS: AddressMap = {
+  ...constructSameAddressMap('0x1F98415757620B543A52E61c46B32eB19261F984', [
+    SupportedChainId.OPTIMISTIC_KOVAN,
+    SupportedChainId.OPTIMISM,
+    SupportedChainId.POLYGON_MUMBAI,
+    SupportedChainId.POLYGON,
+  ]),
+  [SupportedChainId.ARBITRUM_ONE]: '0xadF885960B47eA2CD9B55E6DAc6B42b7Cb2806dB',
+  [SupportedChainId.ARBITRUM_RINKEBY]: '0xa501c031958F579dB7676fF1CE78AD305794d579',
+  [SupportedChainId.CELO]: CELO_MULTICALL_ADDRESS,
+  [SupportedChainId.CELO_ALFAJORES]: CELO_MULTICALL_ADDRESS,
+  [SupportedChainId.BSC]: BSC_MULTICALL_ADDRESSES,
+  [SupportedChainId.BSCTN]: BSCTN_MULTICALL_ADDRESSES,
+}
+
+export const TIMELOCK_ADDRESS: AddressMap = constructSameAddressMap('0x1a9C8182C09F50C8318d769245beA52c32BE35BC')
+
+export const ENS_REGISTRAR_ADDRESSES: AddressMap = {
+  [SupportedChainId.MAINNET]: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e',
+  [SupportedChainId.ROPSTEN]: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e',
+  [SupportedChainId.GOERLI]: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e',
+  [SupportedChainId.RINKEBY]: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e',
+}
+

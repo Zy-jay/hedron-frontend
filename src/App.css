@@ -1,0 +1,99 @@
+.App {
+  text-align: center;
+}
+html{
+ background-color: #212429; 
+}
+
+
+
+/* @font-face {
+  font-family: "Upheaval Pro";
+  src: local("Regular"),
+  url(./assets/fonts/UpheavalPro.ttf) format("truetype"),
+  url(./assets/fonts/Segoe\ UI.woff) format("woff"),
+  url(./assets/fonts/Segoe\ UI\ Bold\ Italic.woff) format("woff");
+    font-family: "Upheaval Pro";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: 'Upheaval Pro', sans-serif;
+  box-sizing: border-box;
+  background-color: #1F0D35;
+    margin: auto;
+
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+/* 
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+} */
+.trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #545454;
+}
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: #545454;
+
+}
+
+.logo {
+  height: 122px;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 50px;
+  background: url("./assets/images/bg-img.jpg");
+  position: sticky;
+  top: 0px;
+
+}
+.logo.span{
+  margin: auto;
+}
+
+.ant-dropdown{
+    background: #121212; 
+    box-shadow: 0 0 0 0 rgb(0 0 0 / 20%), 0 0 0 0 rgb(0 0 0 / 14%), 0 0 0 0 rgb(0 0 0 / 12%); 
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
