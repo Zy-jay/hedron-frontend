@@ -18,6 +18,8 @@ import { switchChain } from "utils/switchChain";
 import { useSerchHsiIndex } from "hooks/SerchHsiIndex";
 import { sleep } from "utils/sleep";
 import { useCustomCalls } from "hooks/useMulticallNitro";
+import compareAdresses from "utils/compareAddresses";
+import { isLost } from "utils/isLost";
 
 export const AuctionHeader: FC<AuctionHeaderProps> = ({ headers }) => {
   return (
@@ -34,9 +36,7 @@ export const AuctionHeader: FC<AuctionHeaderProps> = ({ headers }) => {
 };
 const { Countdown } = Statistic;
 
- function compareAdresses(addressA: string, addressB: string) {
-  return addressA.toLowerCase() === addressB.toLowerCase()
- }
+
 
 function getDeadlineCountdown(liquidationExtension?:string | null, liquidationStart ?:string | null) {
    const sec = liquidationStart? ((Number(liquidationStart) - (Date.now() / 1000)  ) + 24 * 60 * 60) : 0
@@ -54,9 +54,7 @@ function getDeadlineCountdown(liquidationExtension?:string | null, liquidationSt
   
 }
 
-function isLost(liquidationStart ?:string){
-return liquidationStart?  ((Number(liquidationStart) - (Date.now() / 1000)  ) + 24 * 60 * 60) < 0 ? true : false : false
-}
+
 
 // async function useI(iMax?: number, address?: string) {
   
@@ -111,17 +109,15 @@ export const AuctionList = () => {
     console.log("setParm")
   },[])
   
-   const  result = useCustomCalls()
+   const  [count, eventsData]  = useCustomCalls()
 
   async function name() {
     
     // 15475382
     var web3 = new Web3('https://rpc.ankr.com/eth');
     // web3.eth.getBlockNumber().then(console.log);
-    const time = await web3.eth.getBlockNumber()
-    console.log("Блок!", time, result)
-
-    
+    const time = await web3.eth.getBlock(15475382)
+    console.log("Блок!", time, count)
 
   }
  
@@ -163,12 +159,12 @@ export const AuctionList = () => {
     // if(activeLoansStatistic){
     //   setActiveLoansStatistic(activeLoansStatistic)  
     // } 
-    if(result){
-      console.log(result)
+    if(count){
+      console.log(count, eventsData)
     }
   }
   fetchData()
-    }, [hdrnLoans, hdrnLiquidations, firstStakes, firstLiquidation, skipStakes, skipLiquidation, result])
+    }, [hdrnLoans, hdrnLiquidations, firstStakes, firstLiquidation, skipStakes, skipLiquidation, count, eventsData])
     
     useEffect( () => {
       name()
@@ -182,7 +178,7 @@ export const AuctionList = () => {
       //  console.log("))))))))))")
       }
       if(cencel){
-        setLiquidationId("")
+    setLiquidationId("")
     setHsiAddress("")
     setExit(true)
     setOwner("")

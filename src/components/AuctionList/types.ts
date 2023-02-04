@@ -88,3 +88,27 @@ export interface ActiveStatistic  {
     __typename: string
 
 }
+
+export interface LoanLiquidateStart {
+
+  address: string,
+  blockNumber: number,
+  transactionHash: string,
+  transactionIndex: number,
+  blockHash: string,
+  logIndex: number,
+  removed: false,
+  id: string,
+  returnValues: {
+      0: string,
+      1: string,
+      2: string,
+      3: string,
+      data: string,
+      borrower: string,
+      stakeId: string,
+      liquidationId: string
+  },
+  event: string,
+  signature: string,
+}
